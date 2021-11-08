@@ -1,3 +1,35 @@
+*{
+  box-sizing: border-box;
+}
+body {
+  /* background-image: url("SquidGamesBackground.jpeg"); */
+  background-color: rgb(228, 11, 228);
+  color: rgb(247, 241, 241);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  /* overflow: hidden; */
+}
+.figure {
+  fill: transparent;
+  stroke: rgb(4,115,36);
+  stroke-width: 3.5px;
+  stroke-linecap: round;
+}
+.hangman{
+  display: none;
+}
+.rod{
+  
+}
+
+.game-container{
+  margin: auto;
+  height: 350px;
+}
+
 main {
   max-width: 610px;
   margin: auto;
@@ -7,6 +39,7 @@ title {
 }
 h1 {
   text-align: center;
+  margin: 80px;
 }
 h2 {
   text-align: center;
@@ -23,6 +56,9 @@ h3 {
 }
 button:hover {
   background-color: rgb(255,20,147)
+}
+.playAgainBtn {
+  margin-bottom:5% 
 }
 button {
   display: inline-block;
@@ -73,8 +109,6 @@ button {
   cursor: pointer;
   background-color: rgb(4,115,36)
 }
-
-
 .myGuess {
   height: 60px;
   border-radius: 10px;

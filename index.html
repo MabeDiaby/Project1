@@ -11,9 +11,35 @@
 </head>
 <body>
     <main>
+    <div class="game-container">
         <h1>Welcome To This Years Squid Games</h1>
         <h3>Choose A Letter Below, Choosing Wrong Might Just Cost You Your Life</h3>
         <h2>squid games phrase: 무궁화 꼬찌 피엇 소리다    or    let the games begin: 게임을 시작하자</h2>
+        <svg height="250" width="200" class="figure">
+            <!-- https://developer.mozilla.org/en-US/docs/Web/SVG/Element/line -->
+            <!-- https://www.w3schools.com/graphics/svg_line.asp -->
+            <!-- https://www.w3schools.com/html/html5_svg.asp#:~:text=The%20HTML%20%3Csvg%3E%20Element.%20The%20HTML%20%3Csvg%3E%20element,drawing%20paths%2C%20boxes%2C%20circles%2C%20text%2C%20and%20graphic%20images. -->
+            <!-- https://www.w3docs.com/learn-html/svg-line.html -->
+
+            <!-- r -->
+            <line x1="60" y1="20" x2="140" y2="20" class="rod"/>
+            <line x1="1400" y1="20" x2="140" y2="50" class="rod"/>
+            <line x1="60" y1="20" x2="60" y2="230" class="rod"/>
+            <line x1="20" y1="230" x2="100" y2="230" class="rod"/>
+
+            <!-- h -->
+            <circle cx="140" cy="70" r="20" class="hangman"/>
+
+            <!-- b -->
+            <line x1="140" y1="90" x2="140" y2="150" class="hangman"/>
+            <!-- a -->
+            <line x1="140" y1="120" x2="120" y2="100" class="hangman"/>
+            <line x1="140" y1="120" x2="160" y2="100" class="hangman"/>
+            <!-- l -->
+            <line x1="140" y1="150" x2="120" y2="180" class="hangman"/>
+            <line x1="140" y1="150" x2="160" y2="180" class="hangman"/>
+        </svg>
+
         <div id="word"></div> <br>
         <div id="textBox">
             <input type="text" id="guessing" class="myGuess">
@@ -23,14 +49,14 @@
             <br>
         </div>
         <div class="alphabet"></div>
-        <div class="genreHidden">Genre</div>
-            <p class="hint">Hint</p>
+        <div class="genreHidden">Genre:</div>
         <div class="randomWords"></div>
         <h3>Remaining Lives 남은 삶: <span class="lives">3</span></h3>
         <div class="theBtns">
             <button class="hintBtn">Hint</button>
             <!-- <button class="Restart">Restart</button> -->
         </div>
+        <!-- </div> -->
     <div class="hiddenNotification">
             <h2 class="gameOver">Game Over!</h2>
             <h2 class="youWin">You Won</h2>
@@ -65,6 +91,7 @@
         <span class="guess">Y</span>
         <span class="guess">Z</span>
     </div>
+</div>
     </main>
     <script src="script.js"></script>
 </body>
