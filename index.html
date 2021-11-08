@@ -1,0 +1,71 @@
+ <!DOCTYPE html>
+<html lang="en">
+    <a href="https://fontmeme.com/you-tv-series-font/"></a>
+    <a href="https://fontmeme.com/squid-game-font/"></a>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>The Squid Games</title>
+</head>
+<body>
+    <main>
+        <h1>Welcome To This Years Squid Games</h1>
+        <h3>Choose A Letter Below, Choosing Wrong Might Just Cost You Your Life</h3>
+        <h2>squid games phrase: 무궁화 꼬찌 피엇 소리다    or    let the games begin: 게임을 시작하자</h2>
+        <div id="word"></div> <br>
+        <div id="textBox">
+            <input type="text" id="guessing" class="myGuess">
+            <button id="guessWordBtn" class="button" onclick="guessWord()">Guess Full Word</button>
+            <button id="newGameBtn" class="button" onclick="newGame()">New Game</button>
+            <br>
+            <br>
+        </div>
+        <div class="alphabet"></div>
+        <div class="genreHidden">Genre</div>
+            <p class="hint">Hint</p>
+        <div class="randomWords"></div>
+        <h3>Remaining Lives 남은 삶: <span class="lives">3</span></h3>
+        <div class="theBtns">
+            <button class="hintBtn">Hint</button>
+            <!-- <button class="Restart">Restart</button> -->
+        </div>
+    <div class="hiddenNotification">
+            <h2 class="gameOver">Game Over!</h2>
+            <h2 class="youWin">You Won</h2>
+        <h4>Correct Word: <span class="correctWordNotif"></span></h4>
+        <button class="playAgainBtn">Play Again</button>
+    </div>
+    <div id="guesses">
+        <span class="guess">A</span>
+        <span class="guess">B</span>
+        <span class="guess">C</span>
+        <span class="guess">D</span>
+        <span class="guess">E</span>
+        <span class="guess">F</span>
+        <span class="guess">G</span>
+        <span class="guess">H</span>
+        <span class="guess">I</span>
+        <span class="guess">J</span>
+        <span class="guess">K</span>
+        <span class="guess">L</span>
+        <span class="guess">M</span>
+        <span class="guess">N</span>
+        <span class="guess">O</span>
+        <span class="guess">P</span>
+        <span class="guess">Q</span>
+        <span class="guess">R</span>
+        <span class="guess">S</span>
+        <span class="guess">T</span>
+        <span class="guess">U</span>
+        <span class="guess">V</span>
+        <span class="guess">W</span>
+        <span class="guess">X</span>
+        <span class="guess">Y</span>
+        <span class="guess">Z</span>
+    </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
