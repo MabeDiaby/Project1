@@ -1,8 +1,11 @@
 *{
   box-sizing: border-box;
 }
+.doll {
+  float: right;
+}
 body {
-  /* background-image: url("SquidGamesBackground.jpeg"); */
+  background-image: url("Squid_Games_cryptocurrency_Pixabay_1636099140981_1636099166752mask.webp");
   background-color: rgb(228, 11, 228);
   color: rgb(247, 241, 241);
   display: flex;
@@ -21,15 +24,30 @@ body {
 .hangman{
   display: none;
 }
-.rod{
-  
+.word{
+  display: flex;
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .game-container{
   margin: auto;
   height: 350px;
 }
-
+.pops{
+  background-color: rgb(255,20,147);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  /* display: flex; */
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
 main {
   max-width: 610px;
   margin: auto;
@@ -46,6 +64,11 @@ h2 {
 }
 h3 {
   text-align: center;
+}
+.notif p {
+  color: white;
+  text-decoration: underline;
+  margin: 0 0 5px;
 }
 #word {
   letter-spacing: 10px;
@@ -74,7 +97,7 @@ button {
   box-shadow: 0 9px #999;
 }
 .genreHidden {
-
+  font-size: ;
 }
 .gameOver{
   text-align: center;
@@ -100,7 +123,7 @@ button {
 .guess:hover {
   background-color: rgb(255,20,147)
 }
-.guess {
+.guessBtn {
   padding: 10px;
   display: inline-block;
   border: 2px solid;

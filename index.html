@@ -11,11 +11,15 @@
 </head>
 <body>
     <main>
-    <div class="game-container">
-        <h1>Welcome To This Years Squid Games</h1>
-        <h3>Choose A Letter Below, Choosing Wrong Might Just Cost You Your Life</h3>
-        <h2>squid games phrase: 무궁화 꼬찌 피엇 소리다    or    let the games begin: 게임을 시작하자</h2>
-        <svg height="250" width="200" class="figure">
+        <div class="game-container">
+            <img src="https://fontmeme.com/permalink/211111/b6f8f6e54d23b993dd0d99b19e9bb10e.png" alt="squid-game-font" border="0" width="120%">
+            <img src="https://fontmeme.com/permalink/211111/af5859f71fd78976d9b40190a32b0687.png" alt="squid-game-font" border="0" width="120%">
+            <img src="https://fontmeme.com/permalink/211111/91327baf4875564a616881b1b4fa8994.png" alt="squid-game-font" border="0 width="100%">
+            <!-- <h3>Choose A Letter Below, Choosing Wrong Might Just Cost You Your Life</h3> -->
+            <div class="doll">
+                <img src="dolls.png">
+            </div>
+            <svg height="250" width="200" class="figure">
             <!-- https://developer.mozilla.org/en-US/docs/Web/SVG/Element/line -->
             <!-- https://www.w3schools.com/graphics/svg_line.asp -->
             <!-- https://www.w3schools.com/html/html5_svg.asp#:~:text=The%20HTML%20%3Csvg%3E%20Element.%20The%20HTML%20%3Csvg%3E%20element,drawing%20paths%2C%20boxes%2C%20circles%2C%20text%2C%20and%20graphic%20images. -->
@@ -23,73 +27,79 @@
 
             <!-- r -->
             <line x1="60" y1="20" x2="140" y2="20" class="rod"/>
-            <line x1="1400" y1="20" x2="140" y2="50" class="rod"/>
+            <line x1="140" y1="20" x2="140" y2="50" class="rod"/>
             <line x1="60" y1="20" x2="60" y2="230" class="rod"/>
             <line x1="20" y1="230" x2="100" y2="230" class="rod"/>
 
-            <!-- h -->
+            <!-- Head -->
             <circle cx="140" cy="70" r="20" class="hangman"/>
 
-            <!-- b -->
+            <!-- Body -->
             <line x1="140" y1="90" x2="140" y2="150" class="hangman"/>
-            <!-- a -->
+            <!-- Arms -->
             <line x1="140" y1="120" x2="120" y2="100" class="hangman"/>
             <line x1="140" y1="120" x2="160" y2="100" class="hangman"/>
-            <!-- l -->
+            <!-- Legs -->
             <line x1="140" y1="150" x2="120" y2="180" class="hangman"/>
             <line x1="140" y1="150" x2="160" y2="180" class="hangman"/>
         </svg>
-
-        <div id="word"></div> <br>
+        <div class="wrongLetters">
+            <div id="wrongAlpha">
+            </div>
+        </div>
+        <div id="word">
+        </div>
+        <div id="hiddenNotification" class="pops">
+            <div class="popups">
+                <h2 class="youWin">You Won</h2>
+                <h2 class="gameOver">Game Over!</h2>
+                <button class="playAgainBtn">Play Again!</button>
+            </div>
+        </div>
+        <div class="notif" id="notifForLetters">
+            <p>Already Guessed!</p>
+        </div>
         <div id="textBox">
             <input type="text" id="guessing" class="myGuess">
-            <button id="guessWordBtn" class="button" onclick="guessWord()">Guess Full Word</button>
-            <button id="newGameBtn" class="button" onclick="newGame()">New Game</button>
+            <button id="newGameBtn" class="button">New Game</button>
             <br>
             <br>
         </div>
         <div class="alphabet"></div>
-        <div class="genreHidden">Genre:</div>
+        <!-- <div class="genreHidden">Genre:</div> -->
         <div class="randomWords"></div>
-        <h3>Remaining Lives 남은 삶: <span class="lives">3</span></h3>
-        <div class="theBtns">
-            <button class="hintBtn">Hint</button>
-            <!-- <button class="Restart">Restart</button> -->
-        </div>
         <!-- </div> -->
     <div class="hiddenNotification">
-            <h2 class="gameOver">Game Over!</h2>
-            <h2 class="youWin">You Won</h2>
+        <!-- not sure how to add this yet -->
         <h4>Correct Word: <span class="correctWordNotif"></span></h4>
-        <button class="playAgainBtn">Play Again</button>
     </div>
     <div id="guesses">
-        <span class="guess">A</span>
-        <span class="guess">B</span>
-        <span class="guess">C</span>
-        <span class="guess">D</span>
-        <span class="guess">E</span>
-        <span class="guess">F</span>
-        <span class="guess">G</span>
-        <span class="guess">H</span>
-        <span class="guess">I</span>
-        <span class="guess">J</span>
-        <span class="guess">K</span>
-        <span class="guess">L</span>
-        <span class="guess">M</span>
-        <span class="guess">N</span>
-        <span class="guess">O</span>
-        <span class="guess">P</span>
-        <span class="guess">Q</span>
-        <span class="guess">R</span>
-        <span class="guess">S</span>
-        <span class="guess">T</span>
-        <span class="guess">U</span>
-        <span class="guess">V</span>
-        <span class="guess">W</span>
-        <span class="guess">X</span>
-        <span class="guess">Y</span>
-        <span class="guess">Z</span>
+        <span class="guessBtn">A</span>
+        <span class="guessBtn">B</span>
+        <span class="guessBtn">C</span>
+        <span class="guessBtn">D</span>
+        <span class="guessBtn">E</span>
+        <span class="guessBtn">F</span>
+        <span class="guessBtn">G</span>
+        <span class="guessBtn">H</span>
+        <span class="guessBtn">I</span>
+        <span class="guessBtn">J</span>
+        <span class="guessBtn">K</span>
+        <span class="guessBtn">L</span>
+        <span class="guessBtn">M</span>
+        <span class="guessBtn">N</span>
+        <span class="guessBtn">O</span>
+        <span class="guessBtn">P</span>
+        <span class="guessBtn">Q</span>
+        <span class="guessBtn">R</span>
+        <span class="guessBtn">S</span>
+        <span class="guessBtn">T</span>
+        <span class="guessBtn">U</span>
+        <span class="guessBtn">V</span>
+        <span class="guessBtn">W</span>
+        <span class="guessBtn">X</span>
+        <span class="guessBtn">Y</span>
+        <span class="guessBtn">Z</span>
     </div>
 </div>
     </main>

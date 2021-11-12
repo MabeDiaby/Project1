@@ -53,3 +53,205 @@ CSS Steps:
     [] 
 */
 
+const word = document.querySelector("#word")
+const wrongLettters = document.getElementById("notifForLetters")
+const playAgain = document.getElementsByClassName("playAgainBtn")
+const newGame = document.getElementById("newGameBtn")
+const popupNotif = document.getElementsByClassName("pops")
+const notification = document.getElementsByClassName("notif")
+const youWin = document.getElementsByClassName("youWin")
+const youLost = document.getElementsByClassName("gameOver")
+const hangman = document.querySelectorAll(".hangman")
+const url = "https://random-word-form.herokuapp.com/random/noun"
+
+const hint = document.getElementById("hintBtn")
+const guessWordBtn = document.getElementById("guessWordBtn")
+const allIn = document.getElementById("myGuess")
+const alphaWord = document.getElementsByClassName("guessBtn")
+
+
+// const words = []
+const correctGuesses = []
+const wrongGuesses = []
+
+
+
+// function randomWord() {
+//     e.preventDefault()
+//     fetch(url)
+//   .then((res) => res.json())
+//   .then((res) => console.log(res))
+//   .catch((err) => console.error(err));
+//   console.log(word.data);
+// }
+
+var obj;
+let div = document.createElement("div", '_');
+let message = ""
+let replaced = ""
+
+fetch(url)
+.then((res) => {
+    res.preventDefault
+    if (res.ok) {
+        return res.json();
+    } else {
+        throw new Error("NETWORK RESPONSE ERROR");
+    }
+})
+.then(data => {
+    obj = data[0]
+    console.log((obj));
+    console.log((obj.length));
+    for (let i = 0; i < obj.length; i++) {
+        message += "_ "
+    }
+    console.log(message);
+    word.innerText = message
+})
+.then(() => {
+    console.log(obj)
+})
+//   console.log(data);
+.catch((error) => console.error("FETCH ERROR:", error));
+
+
+function selectedWord(){
+    word.innerHTML=
+    `${obj
+        .split('')
+        // https://stackoverflow.com/questions/23565201/put-each-letter-in-given-div-in-separate-span
+        // https://stackoverflow.com/questions/68503823/how-ternary-operator-calls-a-function
+        .map(letter=>`
+         <span class="letter">
+            ${correctGuesses.includes(letter)?letter:"_"}
+         </span>
+        `).join('')
+    }`
+    // https://dmitripavlutin.com/replace-all-string-occurrences-javascript/
+    // const innerWord=word.innerText.replace(/\n/g,'')
+    // if(innerWord===obj){
+    //     youWin.innerText='You Won!'
+    //     popupNotif.style.display="flex"
+    // }
+}
+
+function updateWrongLetter(){
+    // display wrong letters
+    wrongLettters.innerHTML=`
+    ${wrongGuesses.length>0?'<p>Already Gressed!</p>':'_'}
+    ${wrongGuesses.map(letter=>`<span>${letter}</span>`)}
+   `    
+//    displaying the hang man
+   hangman.forEach((part,index)=>{
+       const errors=wrongGuesses.length
+       if(index<errors){
+           part.style.display='block'
+       }else{
+           part.style.display='none'
+       }
+   })
+
+//    check if you lost
+// if(wrongGuesses.length===hangman.length){
+//     youLost.innerText='you lost'
+//     popupNotif.style.display='flex'
+// }
+}
+// show notifications
+// function notifications(){
+//     notification.classList.add('show')
+//     setTimeout(()=>{
+//         notification.classList.remove('show')
+//     },2000)
+// }
+// https://www.freecodecamp.org/news/javascript-keycode-list-keypress-event-key-codes/
+window.addEventListener('keydown',e=>{
+    if(e.keyCode>=65&&e.keyCode<=189){
+        const letter=e.key
+        // https://stackoverflow.com/questions/39972269/how-do-i-check-if-a-guessed-character-is-in-a-string-in-this-code
+        if(obj.includes(letter)){
+            if(!correctGuesses.includes(letter)){
+                correctGuesses.push(letter)
+                selectedWord()
+            }
+            // else{
+            //     notifications( )
+            // }
+        }else{
+            if(!wrongGuesses.includes(letter)){
+                wrongGuesses.push(letter)
+                updateWrongLetter()
+            }
+            // else{
+            //     notifications()
+            // }
+        }
+    }
+})
+
+// function playGame(){   
+//     //empty array
+// correctGuesses.splice(0)
+// wrongGuesses.splice(0)
+// obj=words[Math.floor(Math.random()*words.length)]
+// selectedWord()
+// updateWrongLetter()
+// popupNotif.style.display='none'         
+// }
+
+// play again
+// newGameBtn.addEventListener('click',playAgain)
+// window.addEventListener('keydown',(e)=>{
+//     if(e.keyCode===13){
+//         playAgain()
+//     }
+// })
+
+// selectedWord()
+
+
+
+
+
+// const innerWord = word.innerText.replace(/\n/g, '')
+// if (innerWord ===obj) {
+//     console.log('you win');
+// }
+// console.log(obj);
+// // https://www.freecodecamp.org/news/javascript-keycode-list-keypress-event-key-codes/
+// let updatedGuess = ""
+// word.innerText = updatedGuess
+
+// window.addEventListener('keydown', e => {
+//     if (e.keyCode>=65&&e.keyCode<=190) {
+//         const letter = e.key
+        
+//         if(obj.includes(letter)) {
+//             // const obj = word.appendChild(e.key).style.visbility = "visable"
+//             // word.push(letter)
+//             for (let i = 0; i < obj.length; i++) {
+//                 if (obj[i] == letter) {
+//                     updatedGuess += letter;
+//                     updatedGuess[i].innerHTML = letter
+//                     word.innerHTML += letter
+//                     // word.appendChild(letter)
+                
+//                 }
+//             }
+            
+//             console.log(letter)
+//             console.log(updatedGuess);
+//         }
+//         // div.innerHTML = e.key
+//         // e.key.push()
+        // console.log(`you clicked ${e.key}`);
+//     }
+//     // for (let i = 0; i < obj.length; i++) {
+//     //     updatedGuess += "_";
+//     // };
+// })
+
+// newGame.addEventListener("click", () => {
+//     console.log("You clicked?"); 
+// });
