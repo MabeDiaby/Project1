@@ -2,18 +2,16 @@
 TODO:
 A short description of your game: 
 A single player game where the player will guess letters to create a hidden (random) word. if they guess correctly, they win, if they guess the wrong letter the spacemen lose.
-
 MVP Goals
-    [] Be able to either click letters or type on keyboards
+    [x] Be able to either click letters or type on keyboards
     [] Able to restart game with restart button
-    [] Able to show total amount of chances/guesses left
+    [x] Able to show total amount of chances/guesses left
     []  Nice clean game
-
 Stretch Goals
     [] Animated astronaut and ship
     [] Victory or losing animation
     [] A timer
-    [] Random word generator with genre
+    [x] Random word generator with genre
     [] Track scores across games (even if the page is reloaded)
 */ 
 
@@ -32,21 +30,21 @@ BONUS
 */
 /*
 JS Steps:
-    [] 
-    [] 
-    [] 
-    [] 
-    [] 
-    [] 
+    [x] Pull random words from API
+    [x] Have a feild for wrong letters
+    [] You win and You lose screens to work
+    [x] Have lines so players know how many letters in the word
+    [x] Be able to use your key board
+    [x] Be able to use buttons
     [] 
     [] 
 */
 /*
 CSS Steps:
-    [] 
-    [] 
-    [] 
-    [] 
+    [x] Make it look like squid games using the color schemes
+    [x] Using green and pink
+    [x] Have a doll and different squid games characters
+    [] Make everything look nicer
     [] 
     [] 
     [] 
@@ -75,6 +73,10 @@ const correctGuesses = []
 const wrongGuesses = []
 
 
+var obj;
+let div = document.createElement("div", '_');
+let message = ""
+let replaced = ""
 
 // function randomWord() {
 //     e.preventDefault()
@@ -85,10 +87,6 @@ const wrongGuesses = []
 //   console.log(word.data);
 // }
 
-var obj;
-let div = document.createElement("div", '_');
-let message = ""
-let replaced = ""
 
 fetch(url)
 .then((res) => {
